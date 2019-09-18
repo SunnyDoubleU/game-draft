@@ -6,21 +6,49 @@
   </head>
 </head>
 <body>
-    <h1 id="score">0</h1>
-    <button id="start">Start</button>
+
+    <div class="counter-box">
+          <h2>Time Remaining</h2>
+          <p id="counter">60</p>
+          <p>Seconds</p>
+    </div>
 
     <div class="bobas">
-
+      <div class ="score1">
+        <h2 id="player1Score">0</h2>
+      </div>
       <div class="player1">
-        <img id="cuppa" src="./images/boba.png" alt="Cartoon boba">
+        <div id="cup1">
+            <img id="cuppaImage" src="./images/bubbletea2.png">
+            <h2 id="cuppa1">0</h2>
+        </div>
       </div>
 
       <div class="player2">
-        <img id="cuppa2" src="./images/boba.png" alt="Cartoon boba">
+          <div id="cup2">
+              <img id="cuppaImage" src="./images/bubbletea2.png" alt="Cartoon boba">
+              <h2 id="cuppa2">0</h2>
+          </div>
+      </div>
+      <div class="score2">
+          <h2 id="player2Score">0</h2>
       </div>
 
     </div>
+
+    <div class="startbox">
+        <h1>Bubble Battle</h1>
+        <h2 id="winner">Winner is Player 1</h2>
+          <button id="start">Start</button>
+    </div>
+    <div class="monsters">
+      <img id="mon1" src="images/bobamonster1.png" alt="boba monster">
+      <img id="mon2" src="images/bobamonster2.png" alt="boba monster 2">
+    </div>
     <!-- <canvas id="canvas" width="700" height="700"></canvas> -->
+    <script src="jquery-2.1.4.js"></script>
     <script src="script.js"></script>
+    <script src="player2.js"></script>
+    <script src="counter.js"></script>
 </body>
 </html>

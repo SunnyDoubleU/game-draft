@@ -1,15 +1,15 @@
-
-//PLAYER 1
-class Player1 {
+//PLAYER2
+class Player2 {
     
     constructor() {
-        this.cuppa = new Cuppa()
+        this.cuppa = new Cuppa2()
         // this.boba = [setInterval(function(){
-        //     new Boba()}
+        //     new Boba2()}
         //     , 1000)]
         this.score = 0
         this.start()
-        this.player1Score = 0
+        this.player2Score = 0
+        this.name = name
     }
 
     start() {
@@ -20,8 +20,8 @@ class Player1 {
             fixThis.updateScore()
                 if(fixThis.score === 5) {
                     fixThis.scoreToZero()
-                    fixThis.player1Score++
-                    fixThis.updatePlayer1Score()
+                    fixThis.player2Score++
+                    fixThis.updatePlayer2Score()
                     fixThis.updateCups()
                 }
             }
@@ -29,7 +29,7 @@ class Player1 {
     }
 
     updateScore() {
-        document.getElementById("cuppa1").innerHTML = this.score
+        document.getElementById("cuppa2").innerHTML = this.score
     }
 
     scoreToZero() {
@@ -39,7 +39,7 @@ class Player1 {
     }
 
     updateCups() {
-        var score1 = document.getElementsByClassName("score1")[0]
+        var score1 = document.getElementsByClassName("score2")[0]
         var img = document.createElement("img")
         img.setAttribute("src", "./images/pearls.png")
         img.setAttribute("class", "cupScore")
@@ -47,26 +47,23 @@ class Player1 {
         score1.appendChild(this.htmlRef)
     }
 
-    updatePlayer1Score() {
-        document.getElementById("player1Score").innerHTML = this.player1Score
+    updatePlayer2Score() {
+        document.getElementById("player2Score").innerHTML = this.player2Score
     }
 
     removeBoba(i) {
-        var boba = document.getElementsByClassName("boba")
+        var boba = document.getElementsByClassName("boba2")
         
         boba[i].remove()
 
-        let newArray = Boba.bbs.filter(function(el) {
+        let newArray = Boba.bbs2.filter(function(el) {
             return el.htmlRef != boba[i]
         })
-        Boba.bbs = newArray
-        // Boba.bbs = document.getElementsByClassName("boba")
-        
-        // boba[i].style.display = "none"
+        Boba.bbs2 = newArray
     }
 
     checkCollisionBoba() {
-        var boba = document.getElementsByClassName("boba")
+        var boba = document.getElementsByClassName("boba2")
         var cuppa = this.cuppa;
         for (let i = 0; i < boba.length; i++) {
             if(isCollide(cuppa.htmlRef, boba[i])) {
@@ -78,11 +75,11 @@ class Player1 {
     }
 }
 
-//Cuppa 1
-class Cuppa {
+//Cuppa 2
+class Cuppa2 {
 
     constructor() {
-        this.htmlRef = document.getElementById("cup1")
+        this.htmlRef = document.getElementById("cup2")
         this.htmlRef.width = 100
         this.htmlRef.height = 160
         this.initiateControls()
@@ -92,10 +89,10 @@ class Cuppa {
         var cuppa = this.htmlRef
         window.addEventListener("keydown", function(e){
             switch(e.key) {
-                case("d"):
+                case("ArrowRight"):
                     cuppa.style.left = `${cuppa.offsetLeft + 50}px`
                 break;
-                case("a"):
+                case("ArrowLeft"):
                     cuppa.style.left = `${cuppa.offsetLeft - 50}px`
                 break;
             }
@@ -103,24 +100,23 @@ class Cuppa {
     }
 }
 
-class Boba {
+class Boba2 {
     
     constructor() {
         this.createNew()
         this.appearRandom()
         this.appearRandom = this.appearRandom.bind(this)
         this.checkCollisionBorder()
-         
     }
 
     createNew() {
-        var player1 = document.getElementsByClassName("player1")[0];
+        var player1 = document.getElementsByClassName("player2")[0];
         var img = document.createElement("img");
         img.setAttribute("src", "./images/pearls.png")
-        img.setAttribute("class", "boba")
+        img.setAttribute("class", "boba2")
         this.htmlRef = img 
         player1.appendChild(this.htmlRef)
-        Boba.bbs.push(this)
+        Boba.bbs2.push(this)
     }
    
     appearRandom() {
@@ -137,54 +133,26 @@ class Boba {
     }
 
     checkCollisionBorder() {
-        var boba = document.getElementsByClassName("boba")
+        var boba = document.getElementsByClassName("boba2")
         var fixThis = this
-        setInterval(function(){
+        setInterval(function() {
             for (let i = 0; i < boba.length; i++){
                 if (boba[i].style.top > "930%"){
                     fixThis.removeBoba(i);
                 }
             }
         }, 30)
-        
     }
+
     removeBoba(i) {
-        var boba = document.getElementsByClassName("boba")
+        var boba = document.getElementsByClassName("boba2")
         boba[i].remove()
 
-        let newArray = Boba.bbs.filter(function(el) {
+        let newArray = Boba.bbs2.filter(function(el) {
             return el.htmlRef != boba[i]
         })
-        Boba.bbs = newArray
+        Boba.bbs2 = newArray
     }
 }
 
-Boba.bbs = []
-
-
-
-
-function isCollide(element1, element2) {
-    var a = {
-        y: 100 - element1.offsetTop - element1.height, 
-        x: element1.offsetLeft,
-        height: element1.height,
-        width: element1.width
-    }
-    var b = {
-        y: 100 - element2.offsetTop - element2.height, 
-        x: element2.offsetLeft,
-        height: element2.height,
-        width: element2.width
-    }
-
-    return !(
-        ((a.y + a.height) < (b.y)) ||
-        (a.y > (b.y + b.height)) ||
-        ((a.x + a.width) < b.x) ||
-        (a.x > (b.x + b.width))
-    );
-}
-
-
-
+Boba.bbs2 = []

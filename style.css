@@ -4,55 +4,176 @@
     left: 500px; 
 }*/
 
+@font-face {
+    font-family: "BubbleBash";
+    src: url("./styles/fonts/BubbleBash.otf");
+}
+
 html, body {
     margin: 0;
     padding: 0;
+    background-color: pink;
+    font-family: 'helvetica';
+}
+h1 {
+    text-align: center;
+    font-family: "BubbleBash";
+    color: grey;
+    margin: 0 0;
+    font-size: 4rem;
+}
+h2 {
+    text-align: center;
+    margin: 0 0;
+    font-size: 1rem;
+}
+.counter-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
+#counter {
+    text-align: center;
+    margin: 0 0;
+    font-size: 2rem;
+}
+
+.startbox {
+    position: absolute;
+    width: 60%;
+    height: 40%;
+    top: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #eed226;
+    border-radius: 20px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .bobas {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     width: 100%;
     height: 700px;
 }
-
-#cuppa {
-    position: fixed;
-    width: 10%;
+.cupScore {
+    width: 20px;
     height: auto;
-    top: 65%;
-    left: 20%;
+}
+#cuppaImage {
+    position: fixed;
+    width: 100px;
+    height: auto;
+    opacity: none;
+}
+
+.score1 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 8%;
+    height: auto;
+}
+
+.score2 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    width: 8%;
+    height: auto;
+}
+
+#cup1 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    width: 100px;
+    height: 160px;
+    top: 77%;
+    left: 30%;
+}
+
+#cup2 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    width: 100px;
+    height: 160px;
+    top: 77%;
+    left: 70%;
+}
+
+#cuppa1 {
+    position: fixed;
+    font-size: 2rem;
+}
+
+.boba {
+    display: fixed;
+
 }
 
 #cuppa2 {
     position: fixed;
-    width: 10%;
-    height: auto;
-    top: 65%;
-    left: 70%;
-}
-
-.boba {
-    display: none;
+    font-size: 2rem;
 }
 
 #start {
-    position: relative;
-    top: 10%;
-    left: 40%;
     border: 2px solid black;
     font-size: 2rem;
 }
 
 .player1 {
-    width: 90%;
+    width: 40%;
     height: auto;
-    border: 2px solid black;
-    position: relative
+    background-color:white;
+    border-right: 2px solid grey;
+    position: relative;
+    border-radius: 10px;
 }
 
 .player2 {
-    width: 90%;
+    width: 40%;
     height: auto;
-    border: 2px solid black;
+    background-color:white;
+    border-right: 2px solid grey;
+    position: relative;
+    border-radius: 10px;
+}
+
+.monsters{
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    top: 60%;
+    bottom: 0;
+}
+
+.monsters > img{
+    height: 300px;
+    width: auto;
+}
+
+#mon1 {
+    left: 0%;
+    bottom: -3%;
+}
+
+#mon2 {
+    right: 0%;
+    bottom: -3%;
 }
