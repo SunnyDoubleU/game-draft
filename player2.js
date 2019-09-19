@@ -26,6 +26,12 @@ class Player2 {
                 }
             }
         }, 10)
+
+        setInterval(function() {
+            if(fixThis.checkCollisionWorm()) {
+                fixThis.scoreToZero()
+            }
+        }, 10)
     }
 
     updateScore() {
@@ -56,10 +62,10 @@ class Player2 {
         
         boba[i].remove()
 
-        let newArray = Boba.bbs2.filter(function(el) {
+        let newArray = Boba2.bbs2.filter(function(el) {
             return el.htmlRef != boba[i]
         })
-        Boba.bbs2 = newArray
+        Boba2.bbs2 = newArray
     }
 
     checkCollisionBoba() {
@@ -72,6 +78,29 @@ class Player2 {
             }
         }
         return false
+    }
+
+    checkCollisionWorm() {
+        var worm = document.getElementsByClassName("worm2")
+        var cuppa = this.cuppa;
+        for (let i = 0; i < worm.length; i++) {
+            if(isCollide(cuppa.htmlRef, worm[i])) {
+                this.removeWorm(i)
+                return true
+            }
+        }
+        return false
+    }
+
+    removeWorm(i) {
+        var worm = document.getElementsByClassName("worm2")
+        
+        worm[i].remove()
+
+        let newArray = Worm2.ed.filter(function(el) {
+            return el.htmlRef != worm[i]
+        })
+        Worm2.ed = newArray
     }
 }
 
@@ -90,10 +119,10 @@ class Cuppa2 {
         window.addEventListener("keydown", function(e){
             switch(e.key) {
                 case("ArrowRight"):
-                    cuppa.style.left = `${cuppa.offsetLeft + 50}px`
+                    cuppa.style.left = `${cuppa.offsetLeft + 30}px`
                 break;
                 case("ArrowLeft"):
-                    cuppa.style.left = `${cuppa.offsetLeft - 50}px`
+                    cuppa.style.left = `${cuppa.offsetLeft - 30}px`
                 break;
             }
         })
@@ -116,7 +145,7 @@ class Boba2 {
         img.setAttribute("class", "boba2")
         this.htmlRef = img 
         player1.appendChild(this.htmlRef)
-        Boba.bbs2.push(this)
+        Boba2.bbs2.push(this)
     }
    
     appearRandom() {
@@ -148,11 +177,67 @@ class Boba2 {
         var boba = document.getElementsByClassName("boba2")
         boba[i].remove()
 
-        let newArray = Boba.bbs2.filter(function(el) {
+        let newArray = Boba2.bbs2.filter(function(el) {
             return el.htmlRef != boba[i]
         })
-        Boba.bbs2 = newArray
+        Boba2.bbs2 = newArray
     }
 }
 
-Boba.bbs2 = []
+Boba2.bbs2 = []
+
+class Worm2 {
+    
+    constructor() {
+        this.createWorm()
+        this.randomWorm()
+        this.checkCollisionBorder()
+    }
+
+    createWorm() {
+        var player2 = document.getElementsByClassName("player2")[0];
+        var img = document.createElement("img");
+        img.setAttribute("src", "./images/worm.png")
+        img.setAttribute("class", "worm2")
+        this.htmlRef = img 
+        player2.appendChild(this.htmlRef)
+        Worm.ed.push(this)
+    }
+
+    randomWorm() {
+        var worm = this.htmlRef
+        var topNum = 0
+        worm.style.display = "block"
+        worm.style.position = "absolute"
+        var leftPercentage = `${Math.random() * 90}%`
+        worm.style.left = leftPercentage
+        worm.style.top = setInterval(function() {
+                topNum++
+                worm.style.top = `${topNum}%`
+        }, 50)
+    }
+
+    checkCollisionBorder() {
+        var worm2 = document.getElementsByClassName("worm2")
+        var fixThis = this
+        setInterval(function() {
+            for (let i = 0; i < worm2.length; i++){
+                if (worm2[i].style.top > "930%"){
+                    fixThis.removeWorm(i);
+                }
+            }
+        }, 30)
+    }
+
+     removeWorm(i) {
+        var worm2 = document.getElementsByClassName("worm2")
+        worm2[i].remove()
+
+        let newArray = Worm2.ed.filter(function(el) {
+            return el.htmlRef != worm2[i]
+        })
+        Worm2.ed = newArray
+    }
+}
+
+Worm2.ed = []

@@ -7,14 +7,19 @@
 @font-face {
     font-family: "black bubble";
     src: url("./styles/fonts/blackbubble.ttf");
-
 }
+
+@font-face {
+    font-family: "modern type";
+    src: url("./styles/fonts/moderntype.ttf");
+}
+
 
 html, body {
     margin: 0;
     padding: 0;
     background-color: #BEB9FF;
-    font-family: 'helvetica';
+    font-family: "modern type";
 }
 h1 {
     position: fixed;
@@ -27,8 +32,9 @@ h1 {
     top: 35%;
 }
 h2 {
+    font-family: "modern type";
     text-align: center;
-    margin: 0 0;
+    margin: 2vh 0 0 0;
     font-size: 1rem;
 }
 .counter-box {
@@ -38,10 +44,15 @@ h2 {
 
 }
 
+p {
+    margin: 1vh 0;
+}
+
 #counter {
+    font-family: "modern type";
     text-align: center;
-    margin: 0 0;
-    font-size: 2rem;
+    margin: 1vh 0 0 0;
+    font-size: 3rem;
 }
 
 .startbox {
@@ -136,11 +147,11 @@ body {
 #start {
     display:block;
     font-size: 2rem;
-    color: #BEB9FF;
-    text-shadow: 2px 2px 0 white;
+    color: white;
+    text-shadow: 2px 2px 0 #BEB9FF;
     font-family: "black bubble";
     position: fixed;
-    top: 50%;
+    top: 55%;
     background-color: transparent;
     border: none;
 }
@@ -163,7 +174,7 @@ body {
     border-radius: 10px;
 }
 
-.monsters{
+/* .monsters{
     position: fixed;
     display: flex;
     flex-direction: row;
@@ -172,7 +183,7 @@ body {
     width: 100%;
     top: 60%;
     bottom: 0;
-}
+} */
 
 .monsters > img{
     height: 300px;
@@ -187,4 +198,21 @@ body {
 #mon2 {
     right: 0%;
     bottom: -3%;
+}
+
+.worm, .worm2 {
+height: 80px;
+width: auto;
+}
+
+#winner {
+    display: block;
+    font-size: 2rem;
+    color: #BEB9FF;
+    text-shadow: 2px 2px 0 white;
+    font-family: "modern type";
+    position: fixed;
+    top: 45%;
+    background-color: transparent;
+    border: none;
 }

@@ -9,20 +9,36 @@ class Start{
             document.getElementById("winner").style.visibility = "hidden"
             document.getElementById("player1Score").innerHTML = "0"
             document.getElementById("player2Score").innerHTML = "0"
-            $( ".score2" ).remove("img")
-            $( ".score1" ).remove("img")
+            this.removeCups()
         //   });
     }
 
     removeStart() {
         document.getElementsByClassName("startbox")[0].style.visibility = "hidden";
     }
+
+    removeCups() {
+        var score1 = document.getElementsByClassName("score1")
+        var score2 = document.getElementsByClassName("score2")
+        var img = document.getElementsByClassName("cupScore")
+
+        for (let i = 0; i < score1.length; i++) {
+            if (score1[0].contains(img[i])) {
+                img[i].remove()
+            }
+        } 
+        for (let i = 0; i < score2.length; i++) {
+            if (score2[0].contains(img[i])) {
+                img[i].remove()
+            }
+        }
+    }
 }
 
 class Game {
     constructor() {
         this.getset()
-        this.timeleft = 10
+        this.timeleft = 60
         this.checkWinner()
     }
 
@@ -46,7 +62,15 @@ class Game {
             clearInterval(timer)
         },1000);
 
-        
+        var worm = [setInterval(function(){
+            new Worm()
+            if(fixThis.timeleft <= 5) clearInterval(worm)
+        },3000)];
+
+        var worm2 = [setInterval(function(){
+            new Worm2()
+            if(fixThis.timeleft <= 5) clearInterval(worm2)
+        },3000)];
     }
 
     checkWinner() {
@@ -69,9 +93,10 @@ class Game {
                 }
             document.getElementsByClassName("startbox")[0].style.visibility = "visible"
             winner.style.visibility = "visible"
+            document.getElementById("start").innerHTML = "Restart"
             } 
         }, 1000)
-        
+    
     }
 
 }

@@ -26,6 +26,12 @@ class Player1 {
                 }
             }
         }, 10)
+
+        setInterval(function() {
+            if(fixThis.checkCollisionWorm()) {
+                fixThis.scoreToZero()
+            }
+        }, 10)
     }
 
     updateScore() {
@@ -76,6 +82,29 @@ class Player1 {
         }
         return false
     }
+
+    checkCollisionWorm() {
+        var worm = document.getElementsByClassName("worm")
+        var cuppa = this.cuppa;
+        for (let i = 0; i < worm.length; i++) {
+            if(isCollide(cuppa.htmlRef, worm[i])) {
+                this.removeWorm(i)
+                return true
+            }
+        }
+        return false
+    }
+
+    removeWorm(i) {
+        var worm = document.getElementsByClassName("worm")
+        
+        worm[i].remove()
+
+        let newArray = Worm.ed.filter(function(el) {
+            return el.htmlRef != worm[i]
+        })
+        Worm.ed = newArray
+    }
 }
 
 //Cuppa 1
@@ -93,10 +122,10 @@ class Cuppa {
         window.addEventListener("keydown", function(e){
             switch(e.key) {
                 case("d"):
-                    cuppa.style.left = `${cuppa.offsetLeft + 50}px`
+                    cuppa.style.left = `${cuppa.offsetLeft + 30}px`
                 break;
                 case("a"):
-                    cuppa.style.left = `${cuppa.offsetLeft - 50}px`
+                    cuppa.style.left = `${cuppa.offsetLeft - 30}px`
                 break;
             }
         })
@@ -164,7 +193,9 @@ Boba.bbs = []
 class Worm {
     
     constructor() {
-        
+        this.createWorm()
+        this.randomWorm()
+        this.checkCollisionBorder()
     }
 
     createWorm() {
@@ -177,7 +208,7 @@ class Worm {
         Worm.ed.push(this)
     }
 
-    appearRandom() {
+    randomWorm() {
         var worm = this.htmlRef
         var topNum = 0
         worm.style.display = "block"
@@ -196,10 +227,11 @@ class Worm {
         setInterval(function() {
             for (let i = 0; i < worm.length; i++){
                 if (worm[i].style.top > "930%"){
-                    fixThis.removeBoba(i);
+                    fixThis.removeWorm(i);
                 }
             }
         }, 30)
+    }
 
      removeWorm(i) {
         var worm = document.getElementsByClassName("worm")
