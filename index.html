@@ -3,13 +3,17 @@
   <head>
     <title>Boba Catcher</title>
     <link rel="stylesheet" href="style.css">
+    <audio id="snail" src="./music/background.mp3"></audio>
+    <audio id="bubble" src="./music/Bubble2.mp3"></audio>
+    <audio id="error" src="./music/Wrong.mp3"></audio>
+    <audio id="scoreUp" src="./music/levelUp.mp3"></audio>
   </head>
 </head>
 <body>
 
     <div class="counter-box">
           <h2>Time Remaining</h2>
-          <p id="counter">60</p>
+          <p id="counter">45</p>
           <p>Seconds</p>
     </div>
 
@@ -19,7 +23,7 @@
       </div>
       <div class="player1">
         <div id="cup1">
-            <img id="cuppaImage" src="./images/bubbletea2.png">
+            <img id="cuppaImage" src="./images/bubbletea3.png" alt="Happy bubble tea">
             <h2 id="cuppa1">0</h2>
         </div>
       </div>
@@ -38,14 +42,19 @@
 
     <div class="startbox">
         <h1>Bubble Battle</h1>
-        <h2 id="winner">Winner is Player 1</h2>
+        <p id="winner">Winner is Blah!</p>
+        <ul>
+          <li id="rule">Rules:</li>
+          <li class="rulesLi"><img src="./images/pearls.png" class="rulebub">Catch 5 bubbles to make 1 cup of bubble tea<img src="./images/bubbleheart.png" class="rulecup"> </li>
+          <li class="rulesLi"><img src="./images/worm.png" class="ruleworm">AVOID HIM AT ALL COST! This friendly but deadly worm will ruin your whole drink!</li>
+          <li class="rulesLi">Battle to be the real bubble master!</li>
+        </ul>
           <button id="start">Start</button>
     </div>
     <div class="monsters">
-      <!-- <img id="mon1" src="images/bobamonster1.png" alt="boba monster">
-      <img id="mon2" src="images/bobamonster2.png" alt="boba monster 2"> -->
+      <img id="mon1" src="images/bobamonster1.png" alt="boba monster">
+      <img id="mon2" src="images/bobamonster2.png" alt="boba monster 2">
     </div>
-    <!-- <canvas id="canvas" width="700" height="700"></canvas> -->
     <script src="jquery-2.1.4.js"></script>
     <script src="counter.js"></script>
     <script src="script.js"></script>

@@ -26,16 +26,17 @@ h1 {
     text-align: center;
     font-family: "black bubble";
     color: white;
-    text-shadow: 3px 3px #BEB9FF;
+    text-shadow: 5px 5px#765D9F;
     margin: 0 0;
-    font-size: 4rem;
-    top: 35%;
+    font-size: 5rem;
+    top: 32%;
 }
 h2 {
     font-family: "modern type";
     text-align: center;
     margin: 2vh 0 0 0;
     font-size: 1rem;
+    color: #201D2C;
 }
 .counter-box {
     display: flex;
@@ -46,6 +47,7 @@ h2 {
 
 p {
     margin: 1vh 0;
+    color: #201D2C;
 }
 
 #counter {
@@ -58,12 +60,12 @@ p {
 .startbox {
     position: absolute;
     width: 60%;
-    height: 40%;
-    top: 30%;
+    height: 50%;
+    top: 25%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #FEE6B0;
+    background-color: #F2CA7C;
     border-radius: 20px;
 }
 
@@ -79,8 +81,8 @@ body {
     width: 100%;
     height: 700px;
 }
-.cupScore {
-    width: 20px;
+.cupScore, .cupScore2 {
+    width: 40px;
     height: auto;
 }
 #cuppaImage {
@@ -94,6 +96,7 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
+    align-items: center;
     width: 8%;
     height: auto;
 }
@@ -115,7 +118,7 @@ body {
     width: 100px;
     height: 160px;
     top: 77%;
-    left: 30%;
+    left: 45%;
 }
 
 #cup2 {
@@ -126,7 +129,7 @@ body {
     width: 100px;
     height: 160px;
     top: 77%;
-    left: 70%;
+    left: 40%;
 }
 
 #cuppa1 {
@@ -146,15 +149,20 @@ body {
 
 #start {
     display:block;
-    font-size: 2rem;
+    font-size: 3rem;
     color: white;
-    text-shadow: 2px 2px 0 #BEB9FF;
+    text-shadow: 3px 3px 0 #765D9F;
     font-family: "black bubble";
     position: fixed;
-    top: 55%;
+    top: 65%;
     background-color: transparent;
     border: none;
 }
+
+#start:hover {
+    text-shadow: 5px 5px 0 rgb(153, 131, 189);
+    transition: text-shadow 0.2s ease-in-out;
+  }
 
 .player1 {
     width: 40%;
@@ -174,16 +182,16 @@ body {
     border-radius: 10px;
 }
 
-/* .monsters{
+.monsters{
     position: fixed;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    top: 60%;
+    top: 70%;
     bottom: 0;
-} */
+}
 
 .monsters > img{
     height: 300px;
@@ -207,12 +215,62 @@ width: auto;
 
 #winner {
     display: block;
-    font-size: 2rem;
-    color: #BEB9FF;
+    font-size: 2.4rem;
+    color: #765D9F;
     text-shadow: 2px 2px 0 white;
     font-family: "modern type";
     position: fixed;
-    top: 45%;
+    top: 48%;
     background-color: transparent;
     border: none;
+}
+
+ul li {
+    list-style: none;
+    color: white;
+}
+
+ul {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
+    top: 43%;
+}
+
+#rule {
+    font-size: 1.9rem;
+}
+
+.rulesLi {
+    font-size: 1.2rem;
+}
+
+.rulecup{
+    height: 40px;
+    width: auto;
+    margin: 0 0 0 1vw;
+}
+
+.rulebub {
+    height: 30px;
+    width: auto;
+    margin: 0 1vw 0 0;
+}
+
+.ruleworm {
+    height: 40px;
+    width: auto;
+    margin: 0 1vw 0 0;
+}
+
+li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    max-width: 80%;
+    line-height: 1.7rem;
 }

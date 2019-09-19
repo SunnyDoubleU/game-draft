@@ -4,12 +4,18 @@ class Player1 {
     
     constructor() {
         this.cuppa = new Cuppa()
-        // this.boba = [setInterval(function(){
-        //     new Boba()}
-        //     , 1000)]
         this.score = 0
-        this.start()
         this.player1Score = 0
+        if (this.score > 0 || this.player2Score > 0) {
+            backToZero()
+        }
+        this.start()
+    }
+
+    backToZero(){
+        var zero = 0
+        this.score = zero
+        this.player1Score = zero
     }
 
     start() {
@@ -18,14 +24,16 @@ class Player1 {
             if(fixThis.checkCollisionBoba()) {
             fixThis.score++
             fixThis.updateScore()
+            playBubble()
                 if(fixThis.score === 5) {
+                    playsScoreUp()
                     fixThis.scoreToZero()
                     fixThis.player1Score++
                     fixThis.updatePlayer1Score()
                     fixThis.updateCups()
                 }
             }
-        }, 10)
+        }, 1)
 
         setInterval(function() {
             if(fixThis.checkCollisionWorm()) {
@@ -47,7 +55,7 @@ class Player1 {
     updateCups() {
         var score1 = document.getElementsByClassName("score1")[0]
         var img = document.createElement("img")
-        img.setAttribute("src", "./images/pearls.png")
+        img.setAttribute("src", "./images/bubbleheart.png")
         img.setAttribute("class", "cupScore")
         this.htmlRef = img
         score1.appendChild(this.htmlRef)
@@ -89,6 +97,7 @@ class Player1 {
         for (let i = 0; i < worm.length; i++) {
             if(isCollide(cuppa.htmlRef, worm[i])) {
                 this.removeWorm(i)
+                playError()
                 return true
             }
         }
@@ -122,10 +131,10 @@ class Cuppa {
         window.addEventListener("keydown", function(e){
             switch(e.key) {
                 case("d"):
-                    cuppa.style.left = `${cuppa.offsetLeft + 30}px`
+                    cuppa.style.left = `${cuppa.offsetLeft + 50}px`
                 break;
                 case("a"):
-                    cuppa.style.left = `${cuppa.offsetLeft - 30}px`
+                    cuppa.style.left = `${cuppa.offsetLeft - 50}px`
                 break;
             }
         })
@@ -162,7 +171,7 @@ class Boba {
         boba.style.top = setInterval(function() {
                 topNum++
                 boba.style.top = `${topNum}%`
-        }, 50)
+        }, 30)
     }
 
     checkCollisionBorder() {
@@ -218,7 +227,7 @@ class Worm {
         worm.style.top = setInterval(function() {
                 topNum++
                 worm.style.top = `${topNum}%`
-        }, 50)
+        }, 20)
     }
 
     checkCollisionBorder() {

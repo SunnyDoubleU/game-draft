@@ -3,13 +3,19 @@ class Player2 {
     
     constructor() {
         this.cuppa = new Cuppa2()
-        // this.boba = [setInterval(function(){
-        //     new Boba2()}
-        //     , 1000)]
         this.score = 0
-        this.start()
         this.player2Score = 0
+        if (this.score > 0 || this.player2Score > 0) {
+            backToZero()
+        }
+        this.start()
         this.name = name
+    }
+
+    backToZero(){
+        var zero = 0
+        this.score = zero
+        this.player2Score = zero
     }
 
     start() {
@@ -18,14 +24,16 @@ class Player2 {
             if(fixThis.checkCollisionBoba()) {
             fixThis.score++
             fixThis.updateScore()
+            playBubble()
                 if(fixThis.score === 5) {
+                    playsScoreUp()
                     fixThis.scoreToZero()
                     fixThis.player2Score++
                     fixThis.updatePlayer2Score()
                     fixThis.updateCups()
                 }
             }
-        }, 10)
+        }, 1)
 
         setInterval(function() {
             if(fixThis.checkCollisionWorm()) {
@@ -45,12 +53,12 @@ class Player2 {
     }
 
     updateCups() {
-        var score1 = document.getElementsByClassName("score2")[0]
+        var score2 = document.getElementsByClassName("score2")[0]
         var img = document.createElement("img")
-        img.setAttribute("src", "./images/pearls.png")
-        img.setAttribute("class", "cupScore")
+        img.setAttribute("src", "./images/bubbleheart.png")
+        img.setAttribute("class", "cupScore2")
         this.htmlRef = img
-        score1.appendChild(this.htmlRef)
+        score2.appendChild(this.htmlRef)
     }
 
     updatePlayer2Score() {
@@ -86,6 +94,7 @@ class Player2 {
         for (let i = 0; i < worm.length; i++) {
             if(isCollide(cuppa.htmlRef, worm[i])) {
                 this.removeWorm(i)
+                playError()
                 return true
             }
         }
@@ -119,10 +128,10 @@ class Cuppa2 {
         window.addEventListener("keydown", function(e){
             switch(e.key) {
                 case("ArrowRight"):
-                    cuppa.style.left = `${cuppa.offsetLeft + 30}px`
+                    cuppa.style.left = `${cuppa.offsetLeft + 50}px`
                 break;
                 case("ArrowLeft"):
-                    cuppa.style.left = `${cuppa.offsetLeft - 30}px`
+                    cuppa.style.left = `${cuppa.offsetLeft - 50}px`
                 break;
             }
         })
@@ -158,7 +167,7 @@ class Boba2 {
         boba.style.top = setInterval(function() {
                 topNum++
                 boba.style.top = `${topNum}%`
-        }, 50)
+        }, 30)
     }
 
     checkCollisionBorder() {
@@ -214,7 +223,7 @@ class Worm2 {
         worm.style.top = setInterval(function() {
                 topNum++
                 worm.style.top = `${topNum}%`
-        }, 50)
+        }, 20)
     }
 
     checkCollisionBorder() {

@@ -1,36 +1,36 @@
 class Start{
     constructor() {
-        // var start = document.getElementById("start")
-        // start.addEventListener("click", function(){
+            this.backToZero()
+            this.removeStart()
+            this.removeCups()
             this.game = new Game()
             this.player1 = new Player1()
             this.player2 = new Player2()
-            this.removeStart()
-            document.getElementById("winner").style.visibility = "hidden"
-            document.getElementById("player1Score").innerHTML = "0"
-            document.getElementById("player2Score").innerHTML = "0"
-            this.removeCups()
-        //   });
     }
 
     removeStart() {
         document.getElementsByClassName("startbox")[0].style.visibility = "hidden";
     }
 
-    removeCups() {
-        var score1 = document.getElementsByClassName("score1")
-        var score2 = document.getElementsByClassName("score2")
-        var img = document.getElementsByClassName("cupScore")
+    backToZero(){
+        document.getElementById("winner").style.visibility = "hidden"
+        document.getElementById("player1Score").innerHTML = "0"
+        document.getElementById("player2Score").innerHTML = "0"
+        document.getElementById("cuppa1").innerHTML = "0"
+        document.getElementById("cuppa2").innerHTML = "0"
+    }
 
-        for (let i = 0; i < score1.length; i++) {
-            if (score1[0].contains(img[i])) {
-                img[i].remove()
-            }
+    removeCups() {
+        // var score1 = document.getElementsByClassName("score1")
+        // var score2 = document.getElementsByClassName("score2")
+        var img = document.getElementsByClassName("cupScore")
+        var img2 = document.getElementsByClassName("cupScore2")
+
+        for (let i = img.length; i > 0; i--) {
+            img[0].remove()
         } 
-        for (let i = 0; i < score2.length; i++) {
-            if (score2[0].contains(img[i])) {
-                img[i].remove()
-            }
+        for (let i = img2.length; i > 0; i--) {
+            img2[0].remove()
         }
     }
 }
@@ -38,7 +38,7 @@ class Start{
 class Game {
     constructor() {
         this.getset()
-        this.timeleft = 60
+        this.timeleft = 15
         this.checkWinner()
     }
 
@@ -47,30 +47,44 @@ class Game {
 
         var boba = [setInterval(function(){
             new Boba()
-            if(fixThis.timeleft <= 5) clearInterval(boba)
-        },1000)]
+            if(fixThis.timeleft <= 3) clearInterval(boba)
+        },700)]
 
         var boba2 = [setInterval(function(){
             new Boba2()
-            if(fixThis.timeleft <= 5) clearInterval(boba2)
-        },1000)]
+            if(fixThis.timeleft <= 3) clearInterval(boba2)
+        },700)]
 
         var timer = setInterval(function(){
         fixThis.timeleft--;
         document.getElementById("counter").textContent = fixThis.timeleft;
-        if(fixThis.timeleft <= 0)
-            clearInterval(timer)
+        if(fixThis.timeleft <= 0) clearInterval(timer)
         },1000);
 
         var worm = [setInterval(function(){
             new Worm()
-            if(fixThis.timeleft <= 5) clearInterval(worm)
-        },3000)];
+            if(fixThis.timeleft <= 3) clearInterval(worm)
+        },2000)];
 
         var worm2 = [setInterval(function(){
             new Worm2()
-            if(fixThis.timeleft <= 5) clearInterval(worm2)
-        },3000)];
+            if(fixThis.timeleft <= 3) clearInterval(worm2)
+        },2000)];
+        
+        // var wormWave = [setInterval(function(){
+        //     if (fixThis.timeleft < 20) {
+        //         new Worm()
+        //     } 
+        //     if (fixThis.timeleft <= 3) clearInterval(wormWave)
+        // },2000)];
+
+        // var wormWave2 = [setInterval(function(){
+        //     if (fixThis.timeleft < 20) {
+        //         new Worm2()
+        //     }
+        //     if (fixThis.timeleft <= 3) clearInterval(wormWave2)
+        // },2000)];
+        
     }
 
     checkWinner() {
@@ -93,6 +107,7 @@ class Game {
                 }
             document.getElementsByClassName("startbox")[0].style.visibility = "visible"
             winner.style.visibility = "visible"
+            document.getElementsByTagName("ul")[0].style.visibility = "hidden"
             document.getElementById("start").innerHTML = "Restart"
             } 
         }, 1000)
@@ -101,13 +116,43 @@ class Game {
 
 }
 
+function playSnail(){
+    var snail = document.getElementById("snail")
+    snail.play()
+    snail.volume = 0.1;
+    window.addEventListener("keydown", function(e){
+        switch(e.key) {
+            case("p"):
+            snail.play()
+            break;
+            case("o"):
+            snail.pause()
+            break;
+        }
+    })
+}
+
+function playBubble() {
+    var bubbleSound = document.getElementById("bubble")
+    bubbleSound.play()
+}
+
+function playError() {
+    var errorSound = document.getElementById("error")
+    errorSound.play()
+}
+
+function playsScoreUp() {
+    var scoreSound = document.getElementById("scoreUp")
+    scoreSound.play()
+}
+playSnail()
+
 $(document).ready(function() {
+    
     var start = document.getElementById("start")
     document.getElementById("winner").style.visibility = "hidden"
-    document.getElementsByClassName
     start.addEventListener("click", function(){
         new Start()
     })
  });
-
-
