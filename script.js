@@ -161,8 +161,58 @@ class Boba {
 
 Boba.bbs = []
 
+class Worm {
+    
+    constructor() {
+        
+    }
 
+    createWorm() {
+        var player1 = document.getElementsByClassName("player1")[0];
+        var img = document.createElement("img");
+        img.setAttribute("src", "./images/worm.png")
+        img.setAttribute("class", "worm")
+        this.htmlRef = img 
+        player1.appendChild(this.htmlRef)
+        Worm.ed.push(this)
+    }
 
+    appearRandom() {
+        var worm = this.htmlRef
+        var topNum = 0
+        worm.style.display = "block"
+        worm.style.position = "absolute"
+        var leftPercentage = `${Math.random() * 90}%`
+        worm.style.left = leftPercentage
+        worm.style.top = setInterval(function() {
+                topNum++
+                worm.style.top = `${topNum}%`
+        }, 50)
+    }
+
+    checkCollisionBorder() {
+        var worm = document.getElementsByClassName("worm")
+        var fixThis = this
+        setInterval(function() {
+            for (let i = 0; i < worm.length; i++){
+                if (worm[i].style.top > "930%"){
+                    fixThis.removeBoba(i);
+                }
+            }
+        }, 30)
+
+     removeWorm(i) {
+        var boba = document.getElementsByClassName("worm")
+        worm[i].remove()
+
+        let newArray = Worm.edfilter(function(el) {
+            return el.htmlRef != worm[i]
+        })
+        Worm.ed = newArray
+    }
+}
+
+Worm.ed = []
 
 function isCollide(element1, element2) {
     var a = {

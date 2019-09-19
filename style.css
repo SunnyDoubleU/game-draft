@@ -5,22 +5,26 @@
 }*/
 
 @font-face {
-    font-family: "BubbleBash";
-    src: url("./styles/fonts/BubbleBash.otf");
+    font-family: "black bubble";
+    src: url("./styles/fonts/blackbubble.ttf");
+
 }
 
 html, body {
     margin: 0;
     padding: 0;
-    background-color: pink;
+    background-color: #BEB9FF;
     font-family: 'helvetica';
 }
 h1 {
+    position: fixed;
     text-align: center;
-    font-family: "BubbleBash";
-    color: grey;
+    font-family: "black bubble";
+    color: white;
+    text-shadow: 3px 3px #BEB9FF;
     margin: 0 0;
     font-size: 4rem;
+    top: 35%;
 }
 h2 {
     text-align: center;
@@ -48,7 +52,7 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #eed226;
+    background-color: #FEE6B0;
     border-radius: 20px;
 }
 
@@ -130,8 +134,15 @@ body {
 }
 
 #start {
-    border: 2px solid black;
+    display:block;
     font-size: 2rem;
+    color: #BEB9FF;
+    text-shadow: 2px 2px 0 white;
+    font-family: "black bubble";
+    position: fixed;
+    top: 50%;
+    background-color: transparent;
+    border: none;
 }
 
 .player1 {

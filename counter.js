@@ -7,6 +7,10 @@ class Start{
             this.player2 = new Player2()
             this.removeStart()
             document.getElementById("winner").style.visibility = "hidden"
+            document.getElementById("player1Score").innerHTML = "0"
+            document.getElementById("player2Score").innerHTML = "0"
+            $( ".score2" ).remove("img")
+            $( ".score1" ).remove("img")
         //   });
     }
 
@@ -46,17 +50,20 @@ class Game {
     checkWinner() {
         var fixThis = this
         // this.interValId = set
-        setInterval(function(){
+        var check = setInterval(function(){
             var player1 = document.getElementById("player1Score").innerHTML
             var player2 = document.getElementById("player2Score").innerHTML
             var winner = document.getElementById("winner")
             if(fixThis.timeleft === 0) {;
                 if(parseFloat(player1) > parseFloat(player2)) {
                     winner.innerHTML = "Winner is Player 1!"
+                    clearInterval(check)
                 } else if (player1 === player2) {
                     winner.innerHTML = "Draw"
+                    clearInterval(check)
                 } else {
                     winner.innerHTML = "Winner is Player2!"
+                    clearInterval(check)
                 }
             document.getElementsByClassName("startbox")[0].style.visibility = "visible"
             winner.style.visibility = "visible"
@@ -70,6 +77,7 @@ class Game {
 $(document).ready(function() {
     var start = document.getElementById("start")
     document.getElementById("winner").style.visibility = "hidden"
+    document.getElementsByClassName
     start.addEventListener("click", function(){
         new Start()
     })
