@@ -202,10 +202,10 @@ class Worm {
         }, 30)
 
      removeWorm(i) {
-        var boba = document.getElementsByClassName("worm")
+        var worm = document.getElementsByClassName("worm")
         worm[i].remove()
 
-        let newArray = Worm.edfilter(function(el) {
+        let newArray = Worm.ed.filter(function(el) {
             return el.htmlRef != worm[i]
         })
         Worm.ed = newArray

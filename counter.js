@@ -45,6 +45,8 @@ class Game {
         if(fixThis.timeleft <= 0)
             clearInterval(timer)
         },1000);
+
+        
     }
 
     checkWinner() {
