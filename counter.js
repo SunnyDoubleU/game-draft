@@ -149,11 +149,12 @@ function playsScoreUp() {
 playSnail()
 
 $(document).ready(function() {
+
+    var start = document.getElementById("start")
+    document.getElementById("winner").style.visibility = "hidden"
     var snail = document.getElementById("snail")
     snail.play()
     snail.volume = 0.1;
-    var start = document.getElementById("start")
-    document.getElementById("winner").style.visibility = "hidden"
     start.addEventListener("click", function(){
         new Start()
     })
