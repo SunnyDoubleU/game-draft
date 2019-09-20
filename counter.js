@@ -116,21 +116,21 @@ class Game {
 
 }
 
-// function playSnail(){
-//     var snail = document.getElementById("snail")
-//     snail.play()
-//     snail.volume = 0.1;
-//     window.addEventListener("keydown", function(e){
-//         switch(e.key) {
-//             case("p"):
-//             snail.play()
-//             break;
-//             case("o"):
-//             snail.pause()
-//             break;
-//         }
-//     })
-// }
+function playSnail(){
+    var snail = document.getElementById("snail")
+    snail.play()
+    snail.volume = 0.1;
+    window.addEventListener("keydown", function(e){
+        switch(e.key) {
+            case("p"):
+            snail.play()
+            break;
+            case("o"):
+            snail.pause()
+            break;
+        }
+    })
+}
 
 function playBubble() {
     var bubbleSound = document.getElementById("bubble")
@@ -146,14 +146,12 @@ function playsScoreUp() {
     var scoreSound = document.getElementById("scoreUp")
     scoreSound.play()
 }
-// playSnail()
+playSnail()
 
 $(document).ready(function() {
 
     var start = document.getElementById("start")
     document.getElementById("winner").style.visibility = "hidden"
-    // var snail = document.getElementById("snail")
-    // snail.play()
     snail.volume = 0.1;
     start.addEventListener("click", function(){
         new Start()
