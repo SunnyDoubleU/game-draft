@@ -72,6 +72,16 @@ class Game {
             new Worm2()
             if(fixThis.timeleft <= 3) clearInterval(worm2)
         },1500)];
+
+        var worm3 = [setInterval(function(){
+            new Worm()
+            if(fixThis.timeleft <= 4) clearInterval(worm3)
+        },5000)];
+
+        var worm4 = [setInterval(function(){
+            new Worm2()
+            if(fixThis.timeleft <= 4) clearInterval(worm4)
+        },5000)];
         
         // var wormWave = [setTimeout(function() {
         //     [setInterval(function(){ 
@@ -98,13 +108,13 @@ class Game {
             var winner = document.getElementById("winner")
             if(fixThis.timeleft === 0) {;
                 if(parseFloat(player1) > parseFloat(player2)) {
-                    winner.innerHTML = "Winner is Player 1!"
+                    winner.innerHTML = "Player 1 wins!"
                     clearInterval(check)
                 } else if (player1 === player2) {
                     winner.innerHTML = "Draw"
                     clearInterval(check)
                 } else {
-                    winner.innerHTML = "Winner is Player2!"
+                    winner.innerHTML = "Player 2 wins!"
                     clearInterval(check)
                 }
             document.getElementsByClassName("startbox")[0].style.visibility = "visible"
