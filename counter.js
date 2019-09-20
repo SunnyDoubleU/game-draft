@@ -146,7 +146,7 @@ function playsScoreUp() {
     var scoreSound = document.getElementById("scoreUp")
     scoreSound.play()
 }
-playSnail()
+// playSnail()
 
 $(document).ready(function() {
 
