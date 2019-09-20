@@ -40,7 +40,7 @@ class Start{
 class Game {
     constructor() {
         this.getset()
-        this.timeleft = 15
+        this.timeleft = 30
         this.checkWinner()
     }
 
@@ -66,26 +66,26 @@ class Game {
         var worm = [setInterval(function(){
             new Worm()
             if(fixThis.timeleft <= 3) clearInterval(worm)
-        },2000)];
+        },1500)];
 
         var worm2 = [setInterval(function(){
             new Worm2()
             if(fixThis.timeleft <= 3) clearInterval(worm2)
-        },2000)];
+        },1500)];
         
-        // var wormWave = [setInterval(function(){
-        //     if (fixThis.timeleft < 20) {
-        //         new Worm()
-        //     } 
-        //     if (fixThis.timeleft <= 3) clearInterval(wormWave)
-        // },2000)];
+        // var wormWave = [setTimeout(function() {
+        //     [setInterval(function(){ 
+        //         new Worm(); 
+        //         if(fixThis.timeleft <= 3) clearInterval(wormWave)
+        //     },3000)]
+        // }, 10000)]
 
-        // var wormWave2 = [setInterval(function(){
-        //     if (fixThis.timeleft < 20) {
-        //         new Worm2()
-        //     }
-        //     if (fixThis.timeleft <= 3) clearInterval(wormWave2)
-        // },2000)];
+        // var wormWave2 = [setTimeout(function() {
+        //     [setInterval(function(){ 
+        //         new Worm2(); 
+        //         if(fixThis.timeleft <= 3) clearInterval(wormWave2)
+        //     },3000)]
+        // }, 10000)]
         
     }
 
@@ -148,21 +148,21 @@ function playsScoreUp() {
     var scoreSound = document.getElementById("scoreUp")
     scoreSound.play()
 }
-// playSnail()
-var snail = document.getElementById("snail")
-var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-if(!isChrome){
-  $('#iframeAudio').remove()
-}
-else{
- $('#snail').remove() //just to make sure that it will not have 2x audio in the background 
-}
+playSnail()
+// var snail = document.getElementById("snail")
+// var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+// if(!isChrome){
+//   $('#iframeAudio').remove()
+// }
+// else{
+//  $('#snail').remove() //just to make sure that it will not have 2x audio in the background 
+// }
 
 $(document).ready(function() {
 
     var start = document.getElementById("start")
     document.getElementById("winner").style.visibility = "hidden"
-    snail.volume = 0.1;
+    snail.volume = 0.5;
     start.addEventListener("click", function(){
         new Start()
     })
