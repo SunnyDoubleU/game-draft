@@ -4,7 +4,13 @@
     <title>Boba Catcher</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="./images/worm.png"/>
-    <audio id="snail" src="./music/background.mp3"></audio>
+    <iframe src="./music/background.mp3" allow="autoplay" style="display:none" id="iframeAudio">
+    </iframe> 
+    <audio autoplay loop  id="snail">
+      <source src="./music/background.mp3">
+    </audio>
+
+    <!-- <audio id="snail" src="./music/background.mp3"></audio> -->
     <audio id="bubble" src="./music/Bubble2.mp3"></audio>
     <audio id="error" src="./music/Wrong.mp3"></audio>
     <audio id="scoreUp" src="./music/levelUp.mp3"></audio>
@@ -50,6 +56,10 @@
           <li class="rulesLi"><img src="./images/worm.png" class="ruleworm">AVOID HIM AT ALL COST! This friendly but deadly worm will ruin your whole drink!</li>
           <li class="rulesLi">Battle to be the real bubble master!</li>
         </ul>
+        <div class="playerControls">
+          <p id="playCon1">"a"<-- Player1 -->"d"</p>
+          <p id="playCon2">"&#9664"<-- Player2 -->"&#9654"</p>
+        </div>
           <button id="start">Start</button>
     </div>
     <div class="monsters">

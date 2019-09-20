@@ -28,7 +28,7 @@ h1 {
     color: white;
     text-shadow: 5px 5px#765D9F;
     margin: 0 0;
-    font-size: 5rem;
+    font-size: 6rem;
     top: 32%;
 }
 h2 {
@@ -273,4 +273,22 @@ li {
     justify-content: center;
     max-width: 80%;
     line-height: 1.7rem;
+}
+
+.playerControls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    align-items: center;
+    position: fixed;
+    top: 65%;
+}
+
+#playCon1 {
+    margin-right: 8vw;
+}
+
+#playCon2 {
+    margin-left: 8vw;
 }

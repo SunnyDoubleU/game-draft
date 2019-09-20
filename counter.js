@@ -14,6 +14,8 @@ class Start{
 
     backToZero(){
         document.getElementById("winner").style.visibility = "hidden"
+        document.getElementById("playCon1").style.visibility = "hidden"
+        document.getElementById("playCon2").style.visibility = "hidden"
         document.getElementById("player1Score").innerHTML = "0"
         document.getElementById("player2Score").innerHTML = "0"
         document.getElementById("cuppa1").innerHTML = "0"
@@ -146,7 +148,15 @@ function playsScoreUp() {
     var scoreSound = document.getElementById("scoreUp")
     scoreSound.play()
 }
-playSnail()
+// playSnail()
+
+var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+if(!isChrome){
+  $('#iframeAudio').remove()
+}
+else{
+ $('#snail').remove() //just to make sure that it will not have 2x audio in the background 
+}
 
 $(document).ready(function() {
 
