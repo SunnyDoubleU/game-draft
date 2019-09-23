@@ -1,19 +1,12 @@
-/* #boba2 {
-    position: fixed;
-    bottom: 50px;
-    left: 500px; 
-}*/
-
 @font-face {
     font-family: "black bubble";
-    src: url("./styles/fonts/blackbubble.ttf");
+    src: url("./fonts/blackbubble.ttf");
 }
 
 @font-face {
     font-family: "modern type";
-    src: url("./styles/fonts/moderntype.ttf");
+    src: url("./fonts/moderntype.ttf");
 }
-
 
 html, body {
     margin: 0;
@@ -40,16 +33,51 @@ h2 {
     font-size: 1rem;
     color: #201D2C;
 }
+
+p {
+    margin: 1vh 0;
+    color: #201D2C;
+}
+
+#winner {
+    display: block;
+    font-size: 2.4rem;
+    color: #765D9F;
+    text-shadow: 2px 2px 0 white;
+    font-family: "modern type";
+    position: fixed;
+    top: 50%;
+    background-color: transparent;
+    border: none;
+}
+
+ul li {
+    list-style: none;
+    color: white;
+}
+
+ul {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
+    top: 43%;
+}
+
+#rule {
+    font-size: 1.9rem;
+}
+
+.rulesLi {
+    font-size: 1.2rem;
+}
 .counter-box {
     display: flex;
     flex-direction: column;
     align-items: center;
 
-}
-
-p {
-    margin: 1vh 0;
-    color: #201D2C;
 }
 
 body {
@@ -77,6 +105,14 @@ body {
     border-radius: 20px;
 }
 
+li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    max-width: 80%;
+    line-height: 1.7rem;
+}
 
 .bobas {
     display: flex;
@@ -227,40 +263,6 @@ height: 80px;
 width: auto;
 }
 
-#winner {
-    display: block;
-    font-size: 2.4rem;
-    color: #765D9F;
-    text-shadow: 2px 2px 0 white;
-    font-family: "modern type";
-    position: fixed;
-    top: 50%;
-    background-color: transparent;
-    border: none;
-}
-
-ul li {
-    list-style: none;
-    color: white;
-}
-
-ul {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    justify-content: space-evenly;
-    top: 43%;
-}
-
-#rule {
-    font-size: 1.9rem;
-}
-
-.rulesLi {
-    font-size: 1.2rem;
-}
 
 .rulecup{
     height: 40px;
@@ -280,14 +282,6 @@ ul {
     margin: 0 1vw 0 0;
 }
 
-li {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    max-width: 80%;
-    line-height: 1.7rem;
-}
 
 .playerControls {
     display: flex;

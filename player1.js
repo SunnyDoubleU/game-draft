@@ -55,7 +55,7 @@ class Player1 {
     updateCups() {
         var score1 = document.getElementsByClassName("score1")[0]
         var img = document.createElement("img")
-        img.setAttribute("src", "./images/bubbleheart.png")
+        img.setAttribute("src", "./styles/images/bubbleheart.png")
         img.setAttribute("class", "cupScore")
         this.htmlRef = img
         score1.appendChild(this.htmlRef)
@@ -131,10 +131,14 @@ class Cuppa {
         window.addEventListener("keydown", function(e){
             switch(e.key) {
                 case("d"):
+                if(parseFloat(cuppa.offsetLeft) < 550){
                     cuppa.style.left = `${cuppa.offsetLeft + 50}px`
+                }
                 break;
                 case("a"):
+                if(parseFloat(cuppa.offsetLeft) > 0){
                     cuppa.style.left = `${cuppa.offsetLeft - 50}px`
+                }
                 break;
             }
         })
@@ -154,7 +158,7 @@ class Boba {
     createNew() {
         var player1 = document.getElementsByClassName("player1")[0];
         var img = document.createElement("img");
-        img.setAttribute("src", "./images/pearls.png")
+        img.setAttribute("src", "./styles/images/pearls.png")
         img.setAttribute("class", "boba")
         this.htmlRef = img 
         player1.appendChild(this.htmlRef)
@@ -210,7 +214,7 @@ class Worm {
     createWorm() {
         var player1 = document.getElementsByClassName("player1")[0];
         var img = document.createElement("img");
-        img.setAttribute("src", "./images/worm.png")
+        img.setAttribute("src", "./styles/images/worm.png")
         img.setAttribute("class", "worm")
         this.htmlRef = img 
         player1.appendChild(this.htmlRef)

@@ -2,14 +2,14 @@
 <html>
   <head>
     <title>Bubble Battle</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="./images/worm.png"/>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="shortcut icon" href="./styles/images/worm.png"/>
     <!-- <iframe src="./music/background.mp3" allow="autoplay" type="audio/mp3" style="display:none" id="iframeAudio">
     </iframe>  -->
-    <audio  id="snail" type="audio/mp3" src="./music/background.mp3"></audio>
-    <audio id="bubble" src="./music/Bubble2.mp3"></audio>
-    <audio id="error" src="./music/Wrong.mp3"></audio>
-    <audio id="scoreUp" src="./music/levelUp.mp3"></audio>
+    <audio  id="snail" type="audio/mp3" src="./styles/music/background.mp3"></audio>
+    <audio id="bubble" src="./styles/music/Bubble2.mp3"></audio>
+    <audio id="error" src="./styles/music/Wrong.mp3"></audio>
+    <audio id="scoreUp" src="./styles/music/levelUp.mp3"></audio>
   </head>
 </head>
 <body>
@@ -26,14 +26,14 @@
       </div>
       <div class="player1">
         <div id="cup1">
-            <img id="cuppaImage" src="./images/bubbletea3.png" alt="Happy bubble tea">
+            <img id="cuppaImage" src="./styles/images/bubbletea3.png" alt="Happy bubble tea">
             <h2 id="cuppa1">0</h2>
         </div>
       </div>
 
       <div class="player2">
           <div id="cup2">
-              <img id="cuppaImage" src="./images/bubbletea2.png" alt="Cartoon boba">
+              <img id="cuppaImage" src="./styles/images/bubbletea2.png" alt="Cartoon boba">
               <h2 id="cuppa2">0</h2>
           </div>
       </div>
@@ -48,8 +48,8 @@
         <p id="winner">Winner is Blah!</p>
         <ul>
           <li id="rule">Rules:</li>
-          <li class="rulesLi"><img src="./images/pearls.png" class="rulebub">Catch 5 bubbles to make 1 cup of bubble tea<img src="./images/bubbleheart.png" class="rulecup"> </li>
-          <li class="rulesLi"><img src="./images/worm.png" class="ruleworm">AVOID HIM AT ALL COST! This friendly but deadly worm will ruin your whole drink!</li>
+          <li class="rulesLi"><img src="./styles/images/pearls.png" class="rulebub">Catch 5 bubbles to make 1 cup of bubble tea<img src="./styles/images/bubbleheart.png" class="rulecup"> </li>
+          <li class="rulesLi"><img src="./styles/images/worm.png" class="ruleworm">AVOID HIM AT ALL COST! This friendly but deadly worm will ruin your whole drink!</li>
           <li class="rulesLi">Battle to be the real bubble master!</li>
         </ul>
         <div class="playerControls">
@@ -59,14 +59,12 @@
           <button id="start">Start</button>
     </div>
     <div class="monsters">
-      <img id="mon1" src="images/bobamonster1.png" alt="boba monster">
-      <img id="mon2" src="images/bobamonster2.png" alt="boba monster 2">
+      <img id="mon1" src="./styles/images/bobamonster1.png" alt="boba monster">
+      <img id="mon2" src="./styles/images/bobamonster2.png" alt="boba monster 2">
     </div>
     <script src="jquery-2.1.4.js"></script>
     <script src="counter.js"></script>
-    <script src="script.js"></script>
+    <script src="player1.js"></script>
     <script src="player2.js"></script>
-    
-    
 </body>
 </html>

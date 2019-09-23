@@ -23,8 +23,6 @@ class Start{
     }
 
     removeCups() {
-        // var score1 = document.getElementsByClassName("score1")
-        // var score2 = document.getElementsByClassName("score2")
         var img = document.getElementsByClassName("cupScore")
         var img2 = document.getElementsByClassName("cupScore2")
 
@@ -58,9 +56,9 @@ class Game {
         },700)]
 
         var timer = setInterval(function(){
-        fixThis.timeleft--;
-        document.getElementById("counter").textContent = fixThis.timeleft;
-        if(fixThis.timeleft <= 0) clearInterval(timer)
+            fixThis.timeleft--;
+            document.getElementById("counter").textContent = fixThis.timeleft;
+            if(fixThis.timeleft <= 0) clearInterval(timer)
         },1000);
 
         var worm = [setInterval(function(){
@@ -75,37 +73,23 @@ class Game {
 
         var worm3 = [setInterval(function(){
             new Worm()
-            if(fixThis.timeleft <= 4) clearInterval(worm3)
+            if(fixThis.timeleft <= 5) clearInterval(worm3)
         },5000)];
 
         var worm4 = [setInterval(function(){
             new Worm2()
-            if(fixThis.timeleft <= 4) clearInterval(worm4)
+            if(fixThis.timeleft <= 5) clearInterval(worm4)
         },5000)];
-        
-        // var wormWave = [setTimeout(function() {
-        //     [setInterval(function(){ 
-        //         new Worm(); 
-        //         if(fixThis.timeleft <= 3) clearInterval(wormWave)
-        //     },3000)]
-        // }, 10000)]
-
-        // var wormWave2 = [setTimeout(function() {
-        //     [setInterval(function(){ 
-        //         new Worm2(); 
-        //         if(fixThis.timeleft <= 3) clearInterval(wormWave2)
-        //     },3000)]
-        // }, 10000)]
-        
     }
 
     checkWinner() {
         var fixThis = this
-        // this.interValId = set
+
         var check = setInterval(function(){
             var player1 = document.getElementById("player1Score").innerHTML
             var player2 = document.getElementById("player2Score").innerHTML
             var winner = document.getElementById("winner")
+
             if(fixThis.timeleft === 0) {;
                 if(parseFloat(player1) > parseFloat(player2)) {
                     winner.innerHTML = "Player 1 wins!"
@@ -123,9 +107,7 @@ class Game {
             document.getElementById("start").innerHTML = "Restart"
             } 
         }, 1000)
-    
     }
-
 }
 
 function playSnail(){
@@ -158,18 +140,9 @@ function playsScoreUp() {
     var scoreSound = document.getElementById("scoreUp")
     scoreSound.play()
 }
-playSnail()
-// var snail = document.getElementById("snail")
-// var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-// if(!isChrome){
-//   $('#iframeAudio').remove()
-// }
-// else{
-//  $('#snail').remove() //just to make sure that it will not have 2x audio in the background 
-// }
 
 $(document).ready(function() {
-
+    playSnail()
     var start = document.getElementById("start")
     document.getElementById("winner").style.visibility = "hidden"
     snail.volume = 0.5;
